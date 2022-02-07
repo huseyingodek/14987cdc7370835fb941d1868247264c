@@ -1,4 +1,4 @@
-import React, {useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import { options } from "./data";
 import DatePicker from "react-datepicker";
 
@@ -61,7 +61,8 @@ export default function Reservations(props) {
             <div className="box">
               <div className="miniBox">
                 <span className="headText">Giriş Tarihi</span>
-                <DatePicker  
+                <DatePicker
+                  className="form-control"
                   selected={startDate}
                   dateFormat="dd/MM/yyyy"
                   minDate={startDate}
@@ -73,6 +74,7 @@ export default function Reservations(props) {
               <div className="miniBox">
                 <span className="headText">Çıkış Tarihi</span>
                 <DatePicker
+                  className="form-control"
                   selected={endDate}
                   dateFormat="dd/MM/yyyy"
                   minDate={startDate}
