@@ -1,0 +1,864 @@
+@import url("../../node_modules/js-datepicker/src/datepicker.scss");
+@import "mixin";
+
+// global caps
+.active {
+  color: #363636 !important;
+}
+.colorGreen {
+  color: #009e10;
+}
+.colorBlue {
+  color: #083763;
+}
+.headText {
+  font-weight: 900;
+  @media screen and (max-width: 900px) {
+    font-size: 0.85rem;
+  }
+  @media screen and (max-width: 768px) {
+    font-size: 0.85rem;
+  }
+}
+
+input,
+input::-webkit-input-placeholder {
+  @media screen and (max-width: 900px) {
+    font-size: 0.65rem;
+  }
+  @media screen and (max-width: 768px) {
+    font-size: 0.85rem;
+  }
+}
+
+.lightText {
+  font-weight: lighter;
+}
+.bigText {
+  font-size: 2rem;
+  @media screen and (max-width: 900px) {
+    font-size: 1.5rem;
+  }
+  @media screen and (max-width: 768px) {
+    font-size: 1.5rem;
+  }
+}
+.radioSelected {
+  border: 1px solid #57bf61 !important;
+}
+.threeRem {
+  font-size: 3rem;
+}
+
+.hotelText {
+  font-weight: bolder;
+  font-size: 1.5rem;
+
+  @media screen and (max-width: 900px) {
+    font-size: 1rem;
+  }
+  @media screen and (max-width: 768px) {
+    font-size: 1rem;
+  }
+}
+.hotelCity {
+  font-weight: normal;
+  vertical-align: text-bottom;
+  margin-left: 0.25rem;
+}
+
+main {
+  margin-bottom: 4rem;
+}
+header {
+  background: #083763;
+  width: 100%;
+  border: 1px solid #000;
+  align-items: center;
+
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .left {
+    color: black;
+    display: flex;
+    flex-direction: column;
+    span {
+      color: #fff;
+      line-height: 1.5rem;
+      &:first-child {
+        font-weight: bolder;
+      }
+      &:last-child {
+        font-size: 16px;
+      }
+    }
+  }
+
+  .right {
+    button {
+      font-size: 0.85rem;
+    }
+  }
+}
+section {
+  display: flex;
+  justify-content: center;
+  .sectionTop {
+    display: flex;
+    justify-content: space-around;
+    background: #f2f2f2;
+    width: 90%;
+    border: 1px solid #e1e1e1;
+    border-radius: 10px;
+    z-index: 0;
+
+    .datePicker,
+    .roomType,
+    .payment {
+      position: relative;
+      width: calc(100% / 3);
+      display: flex;
+      flex-direction: column;
+      color: #9a9a9a;
+      align-items: center;
+
+      span {
+        @media screen and (max-width: 768px) {
+          font-size: 0.8rem;
+        }
+        &:first-child {
+          padding: 10px 16px;
+          background: white;
+          border: 1px solid;
+          font-size: 2rem;
+          border-radius: 50%;
+          max-width: 70px;
+        }
+
+        &::after {
+          @media screen and (max-width: 768px) {
+            width: 100%;
+            top: 23%;
+          }
+
+          content: "";
+          /* border-top: 1px solid red; */
+          position: absolute;
+          content: "";
+          height: 1px;
+          background-color: #d1d1d1;
+          width: 150%;
+          margin-left: 17px;
+          top: 27%;
+          z-index: -1;
+
+        }
+      }
+
+      .text {
+        font-weight: bolder;
+        margin-top: 7px;
+        text-align: center;
+        width: 50%;
+      }
+    }
+    .roomType {
+      span {
+        &::after {
+          @media screen and (max-width: 768px) {
+            top: 23%;
+            width: 50%;
+          }
+
+          width: 70%;
+          margin-left: 57px !important;
+          top: 27%;
+          z-index: -1;
+
+        }
+      }
+    }
+    .payment {
+      span {
+        &::after {
+          width: 0%;
+        }
+      }
+    }
+    .datePicker {
+      .cal-pad {
+        padding: 8px 4px !important;
+        z-index: 1;
+      }
+    }
+  }
+
+  .sectionMid {
+    border: 1px solid #d1d1d1;
+    margin-top: 15px;
+    width: 90%;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 1rem;
+
+
+
+    .selector {
+      position: relative;
+
+      i.fa-search {
+        position: absolute;
+        top: 0.7em;
+        right: auto;
+        left: 1.7em;
+        font-size: 16px;
+        color: #333333;
+      }
+      input.form-control {
+        padding-left: 2.5rem;
+
+        &:focus {
+          box-shadow: none;
+          border-color: #d1d1d1;
+        }
+      }
+    }
+    .picker {
+      margin-top: 1.5rem;
+      display: flex;
+      flex-direction: row;
+
+      @media screen and (max-width: 768px) {
+        width: 100%;
+        flex-wrap: wrap;
+      }
+
+      
+      .box {
+        width: 25%;
+        display: flex;
+        justify-content: space-evenly;
+        border: 1px solid #d1d1d1;
+
+
+    @media screen and (max-width: 768px) {
+      width: 50%;
+    }
+
+        &:not(:last-child) {
+          border-right: 0 !important;
+          
+          @media screen and (max-width: 768px) {
+            border-right: 1px solid #d1d1d1 !important;
+
+          }
+        }
+
+        .miniBox {
+          flex-direction: column;
+          display: flex;
+          text-align: start;
+          padding: 1rem 1rem;
+          width: 85%;
+        }
+      }
+    }
+
+    .process {
+      @include buttonContent;
+      justify-content: end;
+
+      .save-next {
+        @include button;
+      }
+    }
+  }
+
+  .roomSelector {
+    position: relative;
+    border: 1px solid #e1e1e1;
+    border-radius: 10px;
+  }
+  .roomInfo {
+    display: flex;
+    flex-direction: column;
+    background: #f2f2f2;
+    width: 90%;
+    border: 1px solid #e1e1e1;
+    border-radius: 10px;
+    margin: 2% auto 0 auto;
+    padding: 1.5em 3em;
+
+    @media screen and (max-width: 768px) {
+      padding: 1.5em 2em;
+    }
+
+    .dateSelect {
+      display: flex;
+      flex-direction: row;
+      margin-top: 0.5rem;
+      @media screen and (max-width: 768px) {
+        .child {
+          margin-left: 0.75rem;
+        }
+      }
+
+      &:nth-child(1n + 1) {
+        text-align: center;
+      }
+
+      span {
+        @media screen and (max-width: 768px) {
+          flex-direction: column;
+          display: flex;
+        }
+      }
+      .dateText {
+        font-weight: bolder;
+      }
+      .date {
+        position: relative;
+        margin-right: 1.5rem;
+        @media screen and (max-width: 768px) {
+          margin-right: 0.5rem;
+        }
+        &::after {
+          content: "";
+          position: absolute;
+          border-top: 1px solid #000;
+          width: 0.5rem;
+          top: 50%;
+          left: 112%;
+
+          @media screen and (max-width: 768px) {
+            display: none;
+          }
+          @media screen and (max-width: 900px) {
+            display: none;
+          }
+        }
+      }
+
+      .not {
+        &::after {
+          width: 0 !important;
+        }
+      }
+    }
+  }
+  .roomSelect {
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    width: 90%;
+    border-radius: 10px;
+    margin: 2% auto 0 auto;
+    padding: 1.5em 0em;
+    @media screen and (max-width: 768px) {
+      padding: 1.5em 0em;
+    }
+
+    .infoText {
+      font-weight: bolder;
+    }
+    .roomRadio {
+      display: flex;
+      flex-direction: row;
+      position: relative;
+      cursor: pointer;
+
+      @media screen and (max-width: 768px) {
+        flex-direction: column;
+      }
+
+      .roomImage {
+        width: calc(100% / 3);
+        border: 1px solid #d1d1d1;
+        border-radius: 10px;
+        justify-content: center;
+        margin-left: 1.25rem;
+        padding: 1rem 1.5rem;
+        cursor: pointer;
+
+        @media screen and (max-width: 768px) {
+          width: 100%;
+          margin: 0.5rem 0rem;
+        }
+
+        @media screen and (max-width: 900px) {
+          padding: 1rem 0.75rem;
+        }
+
+        label {
+          cursor: pointer;
+        }
+        img {
+          width: 100%;
+          border-radius: 5px;
+        }
+        &:first-child {
+          margin-left: 0;
+        }
+        [type="radio"] {
+          position: absolute;
+          opacity: 0;
+          width: 0;
+          height: 0;
+        }
+
+        /* IMAGE STYLES */
+        [type="radio"] + img {
+          cursor: pointer;
+        }
+
+        /* CHECKED STYLES */
+        [type="radio"]:checked + img {
+          border-radius: 5px;
+        }
+        .typeSelectName {
+          font-weight: bolder;
+        }
+        .typeInfo {
+          display: flex;
+          justify-content: space-between;
+          margin-top: 0.25rem;
+          @media screen and (max-width: 900px) {
+            font-size: 0.75rem;
+            line-height: 0.8rem;
+          }
+          .typeInfoLeft {
+            display: flex;
+            flex-direction: column;
+            text-align: start;
+            span {
+              font-size: 13px;
+            }
+          }
+          .typeInfoRight {
+            text-align: end;
+          }
+          .InfoPrice {
+            font-weight: bolder;
+            @media screen and (max-width: 900px) {
+              font-size: 0.75rem;
+            }
+          }
+        }
+      }
+    }
+
+    .process {
+      @include buttonContent;
+      justify-content: space-between;
+
+      .back,
+      .save-next {
+        @include button;
+      }
+    }
+  }
+  .information {
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    width: 90%;
+    border: 1px solid #e1e1e1;
+    border-radius: 10px;
+    margin: 2% auto 0 auto;
+    padding: 1.5em 3em;
+
+    @media screen and (max-width: 768px) {
+      padding: 1.5em 2em;
+    }
+
+    .informaText {
+      align-items: center;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+
+      .resButton {
+        display: flex;
+        flex-direction: row;
+        width: 50%;
+        justify-content: space-around;
+        @media screen and (max-width: 768px) {
+          flex-direction: column;
+          width: 100%;
+        }
+
+        button {
+          background-color: #083763;
+          border: #062746;
+          @media screen and (max-width: 768px) {
+            margin-top: 0.5rem;
+          }
+
+          &::active {
+            box-shadow: none !important;
+          }
+          &::focus {
+            box-shadow: none !important;
+          }
+        }
+      }
+
+      .reservationSuccess {
+        width: 50%;
+        @media screen and (max-width: 768px) {
+          width: 100%;
+        }
+      }
+    }
+  }
+  .roomDetailInfo {
+    display: flex;
+    flex-direction: column;
+    background: #f2f2f2;
+    width: 90%;
+    border: 1px solid #e1e1e1;
+    border-radius: 10px;
+    margin: 2% auto 0 auto;
+    padding: 1.5em 3em;
+
+    .hotelName {
+      @media screen and (max-width: 900px) {
+        font-size: 0.75rem;
+      }
+      @media screen and (max-width: 768px) {
+        font-size: 0.75rem;
+      }
+    }
+
+    .separateArea {
+      width: 100%;
+      flex-direction: row;
+
+      .halfArea {
+        width: 49%;
+        float: left;
+        background-color: white;
+        border-radius: 5px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        margin-left: 0.5rem;
+        margin-top: 1rem;
+        padding: 1rem;
+
+        span {
+          @media screen and (max-width: 900px) {
+            font-size: 0.75rem;
+          }
+          @media screen and (max-width: 768px) {
+            font-size: 0.75rem;
+          }
+        }
+        @media screen and (max-width: 900px) {
+          margin-left: 0.25rem;
+        }
+        @media screen and (max-width: 768px) {
+          margin-left: 0.25rem;
+        }
+
+        &:nth-child(2n + 1) {
+          margin-left: 0px !important;
+        }
+      }
+    }
+    .finalInfo {
+      padding: 2rem;
+      background-color: white;
+      border-radius: 10px;
+      @media screen and (max-width: 900px) {
+        padding: 1rem;
+      }
+      @media screen and (max-width: 768px) {
+        padding: 1rem;
+      }
+
+      .finalText {
+        display: flex;
+        border-radius: 5px;
+        justify-content: space-between;
+        margin-bottom: 1rem;
+        text-align: start;
+        align-items: center;
+      }
+      .finalPrice {
+        text-align: center;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        flex-direction: column;
+      }
+    }
+  }
+
+  .paymentArea {
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+
+    @media screen and (max-width: 768px) {
+      flex-direction: column;
+    }
+
+    .cardArea {
+      flex-direction: column;
+      border: 1px solid #ededed;
+      border-radius: 5px;
+      padding: 1.5rem;
+
+      @media screen and (max-width: 900px) {
+        padding: 0.5rem;
+      }
+      @media screen and (max-width: 768px) {
+        padding: 0.5rem;
+      }
+
+      .cardInput {
+        padding: 3rem 1.5rem;
+        border: 1px solid #d1d1d1;
+        margin-top: 2rem;
+        border-radius: 5px;
+        position: relative;
+
+        .legendary {
+          position: absolute;
+          bottom: 96%;
+          z-index: 1;
+          background: #fff;
+          padding: 0 10px;
+        }
+      }
+      .creditCard {
+        color: white;
+        background-image: linear-gradient(
+          to right top,
+          #280537,
+          #56034c,
+          #890058,
+          #bc005b,
+          #eb1254
+        );
+        width: 100%;
+        border-radius: 20px;
+        padding: 1.5rem 3.5rem;
+        @media screen and (max-width: 900px) {
+          padding: 1.5rem 1rem;
+        }
+        @media screen and (max-width: 768px) {
+          padding: 1.5rem 1rem;
+        }
+
+        .cardHead {
+          display: flex;
+          justify-content: space-between;
+          font-size: 1.5rem;
+          align-items: center;
+        }
+        .cardImage {
+          img {
+            filter: invert(1);
+            @media screen and (max-width: 768px) {
+              margin-top: 0 !important;
+              width: 10%;
+            }
+          }
+          @media screen and (max-width: 900px) {
+            margin-top: 0 !important;
+          }
+        }
+        .cardNumber {
+          display: flex;
+          flex-direction: row;
+          font-size: 2.5rem;
+          font-weight: 900;
+          @media screen and (max-width: 900px) {
+            font-size: 1.5rem;
+            margin-top: 0 !important;
+          }
+          @media screen and (max-width: 768px) {
+            font-size: 1.25rem;
+            margin-top: 0 !important;
+          }
+          span {
+            margin-right: 1rem;
+          }
+        }
+        .cardName {
+          display: flex;
+          flex-direction: column;
+          @media screen and (max-width: 768px) {
+            font-size: 1rem;
+            margin-top: 0 !important;
+          }
+
+          .cardNameText {
+            display: flex;
+            flex-direction: column;
+
+            p {
+              @media screen and (max-width: 900px) {
+                font-size: 1rem;
+                margin-bottom: 0 !important;
+              }
+              @media screen and (max-width: 768px) {
+                font-size: 0.75rem;
+                margin-bottom: 0 !important;
+              }
+            }
+          }
+          .splitArea {
+            display: flex;
+            justify-content: space-between;
+
+            .cardMaster {
+              img {
+                width: 35%;
+                float: right;
+              }
+            }
+          }
+        }
+      }
+      .cardDate {
+        .form-control {
+          margin-right: 1rem !important;
+          &:last-child {
+            margin-right: 0 !important;
+          }
+        }
+      }
+      .creditCardBack {
+        color: white;
+        background-image: linear-gradient(
+          to right top,
+          #280537,
+          #56034c,
+          #890058,
+          #bc005b,
+          #eb1254
+        );
+        width: 100%;
+        border-radius: 20px;
+        padding: 1.5rem 0rem;
+        @media screen and (max-width: 900px) {
+          padding: 1.1rem 0rem;
+        }
+        @media screen and (max-width: 768px) {
+          padding: 0.5rem 0rem;
+        }
+        .cardHead {
+          .blackBack {
+            background-color: #000;
+            width: 100%;
+            height: 3.5rem;
+            @media screen and (max-width: 900px) {
+              height: 2.5rem;
+            }
+            @media screen and (max-width: 768px) {
+              height: 2.5rem;
+            }
+          }
+          .digitArea {
+            width: 50%;
+            background-image: repeating-linear-gradient(
+              grey,
+              #e6e9eb 10%,
+              #757575 20%
+            );
+            align-items: center;
+            padding: 0rem 1rem;
+            height: 3rem;
+            justify-content: end;
+            display: flex;
+            color: #000;
+            font-style: italic;
+            font-weight: bold;
+
+            @media screen and (max-width: 900px) {
+              height: 2.5rem;
+            }
+            @media screen and (max-width: 768px) {
+              height: 2.5rem;
+            }
+          }
+          .cardBothText {
+            text-align: center;
+            padding: 2.1rem 4rem;
+            opacity: 0.3;
+
+            @media screen and (max-width: 900px) {
+              padding: 1.25rem 3.2rem;
+              font-size: 0.7rem;
+              opacity: 0.3;
+            }
+            @media screen and (max-width: 768px) {
+              padding: 0.25rem 3.2rem;
+              font-size: 0.7rem;
+              opacity: 0.3;
+            }
+          }
+        }
+      }
+    }
+
+    .reviewArea {
+      @media screen and (max-width: 768px) {
+        margin-top: 1rem;
+      }
+    }
+    .reviewAreaBoth {
+      width: 98% !important;
+      padding: 1.5rem !important;
+      margin: 0px 0px 0px 10px !important;
+
+      @media screen and (max-width: 900px) {
+        padding: 1.5em 1em !important;
+      }
+      @media screen and (max-width: 768px) {
+        padding: 1.5em 2em;
+        margin-top: 1rem !important;
+        margin: 0px !important;
+        width: 100% !important;
+      }
+
+      .couponArea {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+      }
+    }
+  }
+}
+
+.checkout , .reservationBtn{
+  display: flex;
+  justify-content: center;
+
+  .process {
+    @include buttonContent;
+      width: 90%;
+      justify-content: space-between;
+      margin-top: 0;
+
+      .back,
+      .save-next {
+        @include button;
+      }
+  }
+}
+
+.reservationBtn {
+  .process {
+    justify-content: end !important;
+  }
+}
